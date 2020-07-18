@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+img {
+ width: 200px;
+ height: 200px;
+}
+
+input {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+}
+
+button {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  background-color: #66ffff;
+}
+
+p {
+  color: #000066;
+}
+
+.newButton{
+  background-color: #000066;
+}
