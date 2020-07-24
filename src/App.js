@@ -17,7 +17,7 @@ class App extends Component {
 
   guessChangedHandler = (event) => {
     this.setState({guess: event.target.value});
-
+    console.log('event!');
   }
 
   clickHandler = () => {
@@ -33,8 +33,10 @@ class App extends Component {
             img2 = {require('./Images/back.jpeg')} alt2 = "back"
             img3 = {require('./Images/ahh.jpeg')} alt3 = "ahh" />
 
-            <p>Your guess: {this.state.guess}</p>
-            <p>Your score: {this.state.score}</p>
+          <p>Your guess: {this.state.guess}</p>
+          <p>Your score: {this.state.score}</p>
+
+          <input type = 'text' onChange = {this.guessChangedHandler}/>
        </div>
     );
   }
