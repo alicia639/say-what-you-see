@@ -6,7 +6,7 @@ class App extends Component {
 
   state = {
     score: 0,
-    answer: '',
+    answer: 'chewbacca',
     guess: '',
     clue: ''
   }
@@ -21,7 +21,11 @@ class App extends Component {
   }
 
   clickHandler = () => {
-
+    if(this.state.answer.localeCompare(this.state.guess)===0){
+      console.log('correct');
+    }else{
+      console.log('incorrect');
+    }
   }
 
   render() {
@@ -37,6 +41,7 @@ class App extends Component {
           <p>Your score: {this.state.score}</p>
 
           <input type = 'text' onChange = {this.guessChangedHandler}/>
+          <button onClick = {this.clickHandler}>Submit Answer!</button>
        </div>
     );
   }
