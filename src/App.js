@@ -4,6 +4,13 @@ import ImageSequence from './Components/ImageSequence';
 
 class App extends Component {
 
+  state = {
+    score: 0,
+    answer: '',
+    guess: '',
+    clue: ''
+  }
+
   restartHandler = () => {
 
   }
@@ -25,6 +32,9 @@ class App extends Component {
             img1 = {require('./Images/chew.jpeg')} alt1 = "chew"
             img2 = {require('./Images/back.jpeg')} alt2 = "back"
             img3 = {require('./Images/ahh.jpeg')} alt3 = "ahh" />
+
+            <p>Your guess: {this.state.guess}</p>
+            <p>Your score: {this.state.score}</p>
        </div>
     );
   }
