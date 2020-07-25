@@ -2,13 +2,30 @@ import React, { Component} from 'react';
 import './App.css';
 import ImageSequence from './Components/ImageSequence';
 
+const allClues = [
+  [require('./Images/chew.jpeg'), require('./Images/back.jpeg'), require('./Images/ahh.jpeg')],
+  [require('./Images/albums.jpeg'), require('./Images/dumbell.jpeg'), require('./Images/door.jpeg')],
+  [require('./Images/santa.jpeg'), require('./Images/lid.jpeg'), require('./Images/eh.png')],
+  [require('./Images/L.png'), require('./Images/f.jpeg'), require('./Images/ant.jpeg')],
+  [require('./Images/princes.jpeg'), require('./Images/back.jpeg'), require('./Images/ahh.jpeg')],
+  [require('./Images/star.png'), require('./Images/gaze.jpeg'), require('./Images/inside.png')],
+  [require('./Images/moon.jpeg'), require('./Images/opal.jpeg'), require('./Images/bruce_lee.jpeg')],
+  [require('./Images/con.png'), require('./Images/ella.jpeg'), require('./Images/shin.jpeg')],
+  [require('./Images/foot.jpeg'), require('./Images/ogre.png'), require('./Images/taffy.jpeg')],
+  [require('./Images/ear.jpeg'), require('./Images/thick.jpeg'), require('./Images/wake.jpeg')],
+  [require('./Images/umber.jpeg'), require('./Images/L.png'), require('./Images/ahh.jpeg')],
+  [require('./Images/play.jpeg'), require('./Images/grand_teton.jpeg'), require('./Images/X.jpeg')]
+  ];
+
+const allAnswers = ['Chewbacca', 'Albus Dumbledore', 'holiday', 'elephant', 'Princess Leia', 'stargazing', 'Monopoly', 'constellation', 'photography', 'earthquake', 'umbrella', 'plate techtonics'];
+
 class App extends Component {
 
   state = {
     score: 0,
-    answer: 'chewbacca',
+    answer: allAnswers[0],
     guess: '',
-    clue: ''
+    clue: allClues[0]
   }
 
   restartHandler = () => {
@@ -32,10 +49,7 @@ class App extends Component {
 
      return (
        <div className="App">
-         <ImageSequence
-            img1 = {require('./Images/chew.jpeg')} alt1 = "chew"
-            img2 = {require('./Images/back.jpeg')} alt2 = "back"
-            img3 = {require('./Images/ahh.jpeg')} alt3 = "ahh" />
+         <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
 
           <p>Your guess: {this.state.guess}</p>
           <p>Your score: {this.state.score}</p>
