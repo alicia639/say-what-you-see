@@ -38,6 +38,11 @@ class App extends Component {
   }
 
   clickHandler = () => {
+    this.setState({
+      answer: allAnswers[1],
+      clue: allClues[1],
+      guess: ''
+    })    
     if(this.state.answer.localeCompare(this.state.guess)===0){
       console.log('correct');
     }else{
