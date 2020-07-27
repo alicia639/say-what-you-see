@@ -45,6 +45,7 @@ class App extends Component {
     })    
     if(this.state.answer.localeCompare(this.state.guess)===0){
       console.log('correct');
+      this.setState({score: this.state.score+1})
     }else{
       console.log('incorrect');
     }
@@ -56,8 +57,7 @@ class App extends Component {
        <div className="App">
          <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
 
-          <p>Your guess: {this.state.guess}</p>
-          <p>Your score: {this.state.score}</p>
+          <p>Score: {this.state.score}</p>
 
           <input type = 'text' onChange = {this.guessChangedHandler}/>
           <button onClick = {this.clickHandler}>Submit Answer!</button>
