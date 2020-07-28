@@ -7,7 +7,7 @@ const allClues = [
   [require('./Images/albums.jpeg'), require('./Images/dumbell.jpeg'), require('./Images/door.jpeg')],
   [require('./Images/santa.jpeg'), require('./Images/lid.jpeg'), require('./Images/eh.png')],
   [require('./Images/L.png'), require('./Images/f.jpeg'), require('./Images/ant.jpeg')],
-  [require('./Images/princes.jpeg'), require('./Images/back.jpeg'), require('./Images/ahh.jpeg')],
+  [require('./Images/princes.jpeg'), require('./Images/sleigh.jpeg'), require('./Images/ahh.jpeg')],
   [require('./Images/star.png'), require('./Images/gaze.jpeg'), require('./Images/inside.png')],
   [require('./Images/moon.jpeg'), require('./Images/opal.jpeg'), require('./Images/bruce_lee.jpeg')],
   [require('./Images/con.png'), require('./Images/ella.jpeg'), require('./Images/shin.jpeg')],
@@ -50,21 +50,29 @@ class App extends Component {
     if(this.state.answer.localeCompare(this.state.guess)===0){
       console.log('correct');
       this.setState({score: this.state.score+1})
+      document.getElementById('congrats').innerHTML = 'Congrats!';
+      setTimeout(function(){
+      document.getElementById('congrats').innerHTML = '';}, 1500)
     }else{
       console.log('incorrect');
     }
   }
 
-  render() {
 
+  render() {
+    
      return (
        <div className="App">
+
+         <p>Clue {this.state.turn}/{allAnswers.length}</p>
+
          <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
+            
+         <p>Score: {this.state.score}</p>
 
-          <p>Score: {this.state.score}</p>
-
-          <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
-          <button onClick = {this.clickHandler}>Submit Answer!</button>
+         <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
+         <button className = "newButton" onClick = {this.clickHandler}>Submit Answer!</button>
+         <p id='congrats' className = 'popUpText'></p>
        </div>
     );
   }

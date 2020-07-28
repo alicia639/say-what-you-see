@@ -1,29 +1,78 @@
 .App {
   text-align: center;
+  position: relative;
+  margin-top: 6%;
+}
+
+body{
+  background: #f9e1e0 url(https://unsplash.it/1228/880?image=302);
 }
 
 img {
- width: 200px;
- height: 200px;
+ width: 250px;
+ height: 250px;
 }
 
 input {
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #f9e1e0;
+  box-shadow: 0 2px 3px #feadb9;
   padding: 16px;
+  background-color: #ffffff
 }
 
 button {
   border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
+  box-shadow: 0 2px 3px #feadb9;
   padding: 16px;
-  background-color: #66ffff;
+  background-color: #f9e1e0;
 }
 
 p {
-  color: #000066;
+  color: #6c5b7b;
+  font-family: 'Aclonica';
+  font-size: 24px;
 }
 
 .newButton{
-  background-color: #000066;
+  color: #6c5b7b;
+  font-family: 'Aclonica';
+  font-size: 14px;
+  background-color: #f9e1e0;
 }
+
+
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(359deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(359deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(359deg);}
+}
+
+.popUpText {
+  position: relative;
+  top: -75px;
+  text-align: center;
+  color: white;
+  font-family: 'Righteous', serif;
+  font-size: 100px; 
+  text-shadow: .03em .03em 0 hsla(230,40%,50%,1);
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 2000ms;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 2000ms;
+  -ms-animation-iteration-count: infinite;
+  }
+  
+
