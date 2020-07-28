@@ -22,6 +22,7 @@ const allAnswers = ['Chewbacca', 'Albus Dumbledore', 'holiday', 'elephant', 'Pri
 class App extends Component {
 
   state = {
+    turn: 1,
     score: 0,
     answer: allAnswers[0],
     guess: '',
@@ -38,11 +39,14 @@ class App extends Component {
   }
 
   clickHandler = () => {
-    this.setState({
-      answer: allAnswers[1],
-      clue: allClues[1],
-      guess: ''
-    })    
+    this.setState({turn: this.state.turn+1})
+    if(this.state.turn < allAnswers.length){
+      this.setState({
+        answer: allAnswers[this.state.turn],
+        clue: allClues[this.state.turn],
+        guess: ''
+      })}
+    document.getElementById('myInput').value = ''
     if(this.state.answer.localeCompare(this.state.guess)===0){
       console.log('correct');
       this.setState({score: this.state.score+1})
@@ -59,7 +63,7 @@ class App extends Component {
 
           <p>Score: {this.state.score}</p>
 
-          <input type = 'text' onChange = {this.guessChangedHandler}/>
+          <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
           <button onClick = {this.clickHandler}>Submit Answer!</button>
        </div>
     );
