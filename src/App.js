@@ -30,7 +30,13 @@ class App extends Component {
   }
 
   restartHandler = () => {
-
+    this.setState({
+      turn: 1,
+      score: 0,
+      answer: allAnswers[0],
+      guess: '',
+      clue: allClues[0]
+    })
   }
 
   guessChangedHandler = (event) => {
@@ -67,11 +73,13 @@ class App extends Component {
          <p>Clue {this.state.turn}/{allAnswers.length}</p>
 
          <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
-            
-         <p>Score: {this.state.score}</p>
 
          <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
          <button className = "newButton" onClick = {this.clickHandler}>Submit Answer!</button>
+
+         <p>Score: {this.state.score}</p>
+
+         <button className = "newButton" onClick = {this.restartHandler}>Restart?</button>
          <p id='congrats' className = 'popUpText'></p>
        </div>
     );
