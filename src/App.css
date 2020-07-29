@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   position: relative;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 body{
@@ -11,6 +11,10 @@ body{
 img {
  width: 250px;
  height: 250px;
+}
+
+h1{
+  
 }
 
 input {
@@ -30,7 +34,7 @@ button {
 p {
   color: #6c5b7b;
   font-family: 'Aclonica';
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .newButton{
@@ -40,6 +44,9 @@ p {
   background-color: #f9e1e0;
 }
 
+.header{
+  background-color: #f9e1e0;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Righteous);
 
