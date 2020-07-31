@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import './App.css';
 import ImageSequence from './Components/ImageSequence';
 
+
 const allClues = [
   [require('./Images/chew.jpeg'), require('./Images/back.jpeg'), require('./Images/ahh.jpeg')],
   [require('./Images/albums.jpeg'), require('./Images/dumbell.jpeg'), require('./Images/door.jpeg')],
@@ -19,16 +20,25 @@ const allClues = [
   [require('./Images/fray.jpeg'), require('./Images/ken.jpeg'), require('./Images/sty.jpeg')],
   ];
 
-const allAnswers = ['chewbacca', 'albus dumbledore', 'holiday', 'elephant', 'princess leia', 'stargazing', 'monopoly', 'constellation', 'photography', 'earthquake', 'umbrella', 'plate techtonics', 'sherlock holmes', 'frankenstein'];
+let allAnswers = [ /chewbacc\w/i, /albus ?dumbledor\w/i, /holida\w/i, /elephan\w/i, /princess ?lei\w/i, /stargazin\w/i, /monopol\w/i, /constellatio\w/i, /photograph\w/i, /earthquak\w/i, /umbrell\w/i, /plate ?techtonic\w/i, /sherlock ?holme\w/i, /frankenstei\w/i];
+
+const clickEvent = new MouseEvent("click", {
+    "view": window,
+    "bubbles": true,
+    "cancelable": false
+  });
 
 class App extends Component {
+
 
   state = {
     turn: 1,
     score: 0,
     answer: allAnswers[0],
     guess: '',
-    clue: allClues[0]
+    clue: allClues[0],
+    newTurn: false,
+    timerOn: false
   }
 
   restartHandler = () => {
@@ -37,7 +47,9 @@ class App extends Component {
       score: 0,
       answer: allAnswers[0],
       guess: '',
-      clue: allClues[0]
+      clue: allClues[0],
+      newTurn: false,
+      timerOn: true
     })
   }
 
@@ -52,10 +64,11 @@ class App extends Component {
       this.setState({
         answer: allAnswers[this.state.turn],
         clue: allClues[this.state.turn],
-        guess: ''
+        guess: '',
+        newTurn: true
       })}
     document.getElementById('myInput').value = ''
-    if(this.state.answer.localeCompare(this.state.guess.toLowerCase())===0){
+    if(this.state.answer.test(this.state.guess)===true){
       console.log('correct');
       this.setState({score: this.state.score+1})
       document.getElementById('congrats').innerHTML = 'Congrats!';
@@ -64,6 +77,38 @@ class App extends Component {
     }else{
       console.log('incorrect');
     }
+    this.startTimer();
+  }
+
+
+  startTimer = () => {
+    var minute;
+    var sec;
+    var time = 180;
+    const interval = setInterval(() => {
+      if (time < 0){ 
+        console.log('time out');
+        document.getElementById('timeDisplay').innerHTML = "time out";  
+        clearInterval(interval);
+        document.getElementById('clickButton').dispatchEvent(clickEvent);
+      } else if(this.state.newTurn===true) {
+        clearInterval(interval);
+        this.setState({newTurn: false});
+      }else{
+        minute = parseInt(time/60);
+        sec = parseInt(time%60);
+        document.getElementById('timeDisplay').innerHTML = minute+" min "+sec + " s left";
+        console.log(minute+" min "+sec + " s left");
+        time--;
+     }
+    }, 1000);
+  }
+
+  callTimer = (fn) => {
+    if (this.state.timerOn === false){
+      fn();
+      this.setState({timerOn: true})
+    }  
   }
 
 
@@ -71,19 +116,25 @@ class App extends Component {
     
      return (
        <div className="App">
+           
 
          <h1>Say What You See</h1>
-         <p>Guess the word or phrase that these images represent.</p>   
+         <p>Guess the word or phrase that these images represent.  You have three minutes per question.</p> 
+
+         <p id='timeDisplay' className = 'time'></p>
+         <script onLoad ={this.callTimer(this.startTimer)}></script>  
 
          <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
 
          <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
-         <button className = "newButton" onClick = {this.clickHandler}>Submit Answer!</button>
+         <button className = "newButton" onClick = {this.clickHandler} id="clickButton">Submit Answer!</button>
          <p>Clue: {this.state.turn}/{allAnswers.length}</p>
          <p>Score: {this.state.score}</p>
 
          <button className = "newButton" onClick = {this.restartHandler}>Restart?</button>
+
          <p id='congrats' className = 'popUpText'></p>
+
        </div>
     );
   }
