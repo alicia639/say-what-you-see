@@ -5,8 +5,12 @@ import ImageSequence from './Components/ImageSequence';
 
 const allClues = [
   [require('./Images/chew.jpeg'), require('./Images/back.jpeg'), require('./Images/ahh.jpeg')],
+  [require('./Images/orca.jpeg'), require('./Images/straw.jpeg')],
+  [require('./Images/inside.png'), require('./Images/vent.jpeg'), require('./Images/shin.jpeg')],
   [require('./Images/albums.jpeg'), require('./Images/dumbell.jpeg'), require('./Images/door.jpeg')],
+  [require('./Images/peas.jpeg'), require('./Images/ahh.jpeg')],
   [require('./Images/santa.jpeg'), require('./Images/lid.jpeg'), require('./Images/eh.png')],
+  [require('./Images/fern.jpeg'), require('./Images/itch.jpeg'), require('./Images/sure.jpeg')],
   [require('./Images/L.png'), require('./Images/f.jpeg'), require('./Images/ant.jpeg')],
   [require('./Images/princes.jpeg'), require('./Images/sleigh.jpeg'), require('./Images/ahh.jpeg')],
   [require('./Images/star.png'), require('./Images/gaze.jpeg'), require('./Images/inside.png')],
@@ -15,12 +19,15 @@ const allClues = [
   [require('./Images/foot.jpeg'), require('./Images/ogre.png'), require('./Images/taffy.jpeg')],
   [require('./Images/ear.jpeg'), require('./Images/thick.jpeg'), require('./Images/wake.jpeg')],
   [require('./Images/umber.jpeg'), require('./Images/L.png'), require('./Images/ahh.jpeg')],
+  [require('./Images/suit.png'), require('./Images/table.jpeg')],
   [require('./Images/play.jpeg'), require('./Images/grand_teton.jpeg'), require('./Images/X.jpeg')],
   [require('./Images/sheer.jpeg'), require('./Images/lock.png'), require('./Images/home.jpeg')],
   [require('./Images/fray.jpeg'), require('./Images/ken.jpeg'), require('./Images/sty.jpeg')],
+  [require('./Images/com.png'), require('./Images/pet.jpeg'), require('./Images/tea.jpeg'), require('./Images/shin.jpeg')],
+  [require('./Images/gel.jpeg'), require('./Images/hiss.jpeg')]
   ];
 
-let allAnswers = [ /chewbacc\w/i, /albus ?dumbledor\w/i, /holida\w/i, /elephan\w/i, /princess ?lei\w/i, /stargazin\w/i, /monopol\w/i, /constellatio\w/i, /photograph\w/i, /earthquak\w/i, /umbrell\w/i, /plate ?techtonic\w/i, /sherlock ?holme\w/i, /frankenstei\w/i];
+let allAnswers = [ /chewbacc\w/i, /orchestr\w/i, /inventio\w/i, /albus ?dumbledor\w/i, /pizz\w/i, /holida\w/i, /furnitur\w/i, /elephan\w/i, /princess ?lei\w/i, /stargazin\w/i, /monopol\w/i, /constellatio\w/i, /photograph\w/i, /earthquak\w/i, /umbrell\w/i, /suitabl\w/i, /plate ?techtonic\w/i, /sherlock ?holme\w/i, /frankenstei\w/i, /competitio\w/i];
 
 const clickEvent = new MouseEvent("click", {
     "view": window,
@@ -48,9 +55,10 @@ class App extends Component {
       answer: allAnswers[0],
       guess: '',
       clue: allClues[0],
-      newTurn: false,
+      newTurn: true,
       timerOn: true
     })
+    this.startTimer()
   }
 
   guessChangedHandler = (event) => {
@@ -77,7 +85,7 @@ class App extends Component {
     }else{
       console.log('incorrect');
     }
-    this.startTimer();
+    this.startTimer()
   }
 
 
@@ -124,7 +132,7 @@ class App extends Component {
          <p id='timeDisplay' className = 'time'></p>
          <script onLoad ={this.callTimer(this.startTimer)}></script>  
 
-         <ImageSequence img1 = {this.state.clue[0]} img2 = {this.state.clue[1]} img3 = {this.state.clue[2]}/>
+         <ImageSequence images = {this.state.clue}/>
 
          <input type = 'text' onChange = {this.guessChangedHandler} id='myInput'/>
          <button className = "newButton" onClick = {this.clickHandler} id="clickButton">Submit Answer!</button>
