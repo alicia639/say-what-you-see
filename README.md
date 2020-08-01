@@ -1,10 +1,10 @@
-# Project Hub MVP: Project Template 
-This repository is acting as a MVP for the Project Hub.
+# Say What You See
+This app is a a coding project to learn about different coding languages and web development.
 
-## Project
-The test project is a [react](https://reactjs.org/) app. The app is a simple game of [say what you see](https://www.youtube.com/watch?v=qSzC9X5fTIE) in which a series of images are shown to the user and they must guess what common word or phrase the images represent.
-![appExample](https://user-images.githubusercontent.com/45152371/86065882-91bf2180-ba25-11ea-8ee6-32525c8c6a53.gif)
-## Process
+## How It Works
+A player has three minutes to guess the word or name represented by a sequence of images.  If they get the answer right in the time limit, they gain a point.
+
+## Link To The App
 Students will gain access to this repository through a GitHub classroom.
 
 1. A mentor is assigned to the project

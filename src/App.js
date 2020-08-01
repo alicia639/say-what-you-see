@@ -14,7 +14,7 @@ const allClues = [
   [require('./Images/L.png'), require('./Images/f.jpeg'), require('./Images/ant.jpeg')],
   [require('./Images/princes.jpeg'), require('./Images/sleigh.jpeg'), require('./Images/ahh.jpeg')],
   [require('./Images/star.png'), require('./Images/gaze.jpeg'), require('./Images/inside.png')],
-  [require('./Images/moon.jpeg'), require('./Images/opal.jpeg'), require('./Images/bruce_lee.jpeg')],
+  [require('./Images/moon.jpeg'), require('./Images/opal.jpeg'), require('./Images/ollie.jpeg')],
   [require('./Images/con.png'), require('./Images/ella.jpeg'), require('./Images/shin.jpeg')],
   [require('./Images/foot.jpeg'), require('./Images/ogre.png'), require('./Images/taffy.jpeg')],
   [require('./Images/ear.jpeg'), require('./Images/thick.jpeg'), require('./Images/wake.jpeg')],
