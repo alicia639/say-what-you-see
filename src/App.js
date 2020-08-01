@@ -101,7 +101,7 @@ class App extends Component {
         document.getElementById('clickButton').dispatchEvent(clickEvent);
       } else if(this.state.newTurn===true) {
         clearInterval(interval);
-        this.setState({newTurn: false});
+        this.setState({newTurn: false})
       }else{
         minute = parseInt(time/60);
         sec = parseInt(time%60);
