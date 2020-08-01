@@ -1,0 +1,12 @@
+{
+  "name": "Say What You See",
+  "description": "Guess the clue.",
+  "repository": "https://github.com/hightechu/react-app-alicia639",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
+
