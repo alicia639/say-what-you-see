@@ -96,12 +96,8 @@ class App extends Component {
       if (time < 0){ 
         console.log('time out');
         document.getElementById('timeDisplay').innerHTML = "time out";  
-        clearInterval(interval);
-        setTimeout(function(){
-        document.getElementById('timeDisplay').innerHTML = '';}, 500)
         time = 180;
       } else if(this.state.newTurn===true) {
-        clearInterval(interval);
         this.setState({newTurn: false})
         time = 180;
       }else{
