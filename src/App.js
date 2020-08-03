@@ -96,6 +96,7 @@ class App extends Component {
       if (time < 0){ 
         console.log('time out');
         document.getElementById('timeDisplay').innerHTML = "time out";  
+        document.getElementById('clickButton').dispatchEvent(clickEvent);
         time = 180;
       } else if(this.state.newTurn===true) {
         this.setState({newTurn: false})
