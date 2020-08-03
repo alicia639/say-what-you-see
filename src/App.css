@@ -5,6 +5,16 @@
   text-align: center;
 }
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
 body{
   background: #f9e1e0 url(https://unsplash.it/1228/880?image=302) no-repeat center center;
   background-size: cover;
