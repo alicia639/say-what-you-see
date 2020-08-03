@@ -102,7 +102,7 @@ class App extends Component {
       } else if(this.state.newTurn===true) {
         clearInterval(interval);
         this.setState({newTurn: false})
-        timer = 180;
+        time = 180;
       }else{
         minute = parseInt(time/60);
         sec = parseInt(time%60);
