@@ -8,3 +8,4 @@ A player has three minutes to guess the word or name represented by a sequence o
 https://react-app-alicia639.herokuapp.com/
 
 ##App Preview (will add later)
+
