@@ -85,7 +85,6 @@ class App extends Component {
     }else{
       console.log('incorrect');
     }
-    this.startTimer()
   }
 
 
@@ -99,9 +98,11 @@ class App extends Component {
         document.getElementById('timeDisplay').innerHTML = "time out";  
         clearInterval(interval);
         document.getElementById('clickButton').dispatchEvent(clickEvent);
+        time = 180;
       } else if(this.state.newTurn===true) {
         clearInterval(interval);
         this.setState({newTurn: false})
+        timer = 180;
       }else{
         minute = parseInt(time/60);
         sec = parseInt(time%60);
